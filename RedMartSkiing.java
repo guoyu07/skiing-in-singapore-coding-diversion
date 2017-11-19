@@ -29,13 +29,13 @@ class RedMartSkiing
     }
     
     private static boolean isInValidRowCol(int row, int col, int newRow, int newCol, Set<String> visited) {
-        return newRow < 0 || newRow >= mat.length || newCol < 0 || newCol >= mat.length || visited.contains(""+newRow+newCol) || mat[newRow][newCol] >= mat[row][col];
+        return newRow < 0 || newRow >= mat.length || newCol < 0 || newCol >= mat.length || visited.contains(newRow+","+newCol) || mat[newRow][newCol] >= mat[row][col];
     }
     
     private static int calc(int row, int col, Set<String> visited) {
         int currRes;
         List<String> curList = new ArrayList<>();
-        String key = ""+row+col;
+        String key = row+","+col;
         if (mapResult.containsKey(key)) {
             currRes = mapResult.get(key);
         } else {
@@ -46,22 +46,22 @@ class RedMartSkiing
             if (!isInValidRowCol(row, col, row+1, col, visited)) {
                 int vCalc = calc(row+1, col, visited);
                 arr[arrCnt++] = 1 + vCalc;
-                hMap.put(""+(row+1)+col, vCalc);
+                hMap.put((row+1)+","+col, vCalc);
             }
             if (!isInValidRowCol(row, col, row-1, col, visited)) {
                 int vCalc = calc(row-1, col, visited);
                 arr[arrCnt++] = 1 + vCalc;
-                hMap.put(""+(row-1)+col, vCalc);
+                hMap.put((row-1)+","+col, vCalc);
             }
             if (!isInValidRowCol(row, col, row, col+1, visited)) {
                 int vCalc = calc(row, col+1, visited);
                 arr[arrCnt++] = 1 + vCalc;
-                hMap.put(""+row+(col+1), vCalc);
+                hMap.put(row+","+(col+1), vCalc);
             }
             if (!isInValidRowCol(row, col, row, col-1, visited)) {
                 int vCalc = calc(row, col-1, visited);
                 arr[arrCnt++] = 1 + vCalc;
-                hMap.put(""+row+(col-1), vCalc);
+                hMap.put(row+","+(col-1), vCalc);
             }
             if (arrCnt > 0) {
                 currRes = maxArr(arr);
@@ -76,7 +76,7 @@ class RedMartSkiing
     }
     
     private static int matValFromString(String key) {
-        String[] rowCol = key.split("");
+        String[] rowCol = key.split(",");
         return mat[Integer.parseInt(rowCol[0])][Integer.parseInt(rowCol[1])];
     }
 
@@ -172,7 +172,7 @@ class RedMartSkiing
             int diff = matKey - matVal;
             if (bigDiff < diff) {
                 bigDiff = diff;
-                System.out.println("MaxCount: "+mapResult.get(key)+" DropCount: "+diff);
+                System.out.println("MaxCount: "+mapResult.get(key)+" DropCount: "+bigDiff);
                 emailId = ""+mapResult.get(key)+diff;
             }
         }
