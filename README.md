@@ -1,5 +1,5 @@
 # skiing-in-singapore-coding-diversion
-This is coding problem to solving the skiing in Singapore. This is one of the Redmart's coding question. This repo gives the solution in Java language for the below [Problem Statement](https://github.com/swami701/skiing-in-singapore-coding-diversion#problem-statement). The [solution execution detail](https://github.com/swami701/skiing-in-singapore-coding-diversion#running-the-solution) and [Pre-requisites](https://github.com/swami701/skiing-in-singapore-coding-diversion#pre-requisites) are also provided below.
+This is coding problem to solving the skiing in Singapore. This is one of the [Redmart's coding question](http://geeks.redmart.com/2015/01/07/skiing-in-singapore-a-coding-diversion/). This repo gives the solution in Java language for the below [Problem Statement](https://github.com/swami701/skiing-in-singapore-coding-diversion#problem-statement). The [solution execution detail](https://github.com/swami701/skiing-in-singapore-coding-diversion#running-the-solution) and [Pre-requisites](https://github.com/swami701/skiing-in-singapore-coding-diversion#pre-requisites) are also provided below.
 
 ### Problem Statement
 Skiing in Singapore
