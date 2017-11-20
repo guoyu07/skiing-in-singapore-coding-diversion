@@ -18,6 +18,10 @@ class RedMartSkiing
             if (big < hMap.get(key)) {
                 big = hMap.get(key);
                 str = key;
+            } else if (big == hMap.get(key)) {
+                if (matValFromString(str) > matValFromString(key)) { // To get the high drop
+                    str = key;
+                }
             }
         }
         return str;
@@ -153,7 +157,6 @@ class RedMartSkiing
                 maxKeys.put(key, "");
             }
         }
-        
         for (String hKey : maxKeys.keySet()) {
             String key = hKey;
             String val = mapArr.get(key);
@@ -162,7 +165,7 @@ class RedMartSkiing
                 val = mapArr.get(key);
             }
             maxKeys.put(hKey, key);
-        }                
+        }
 
         String emailId = null;
         int bigDiff = -1;
